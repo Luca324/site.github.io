@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Физика</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="home.js"></script>   
+</head>
+
+
+
+  <!-- ШАПКА -->
+
+		
+  <header class="header">
+    <div class="container2">
+
+        <div class="logo">
+            <a href="/"><img src="https://src.guap.ru/logos/guap/deps/fspo-sing_b.svg" alt="Логотип ">
+        </div>
+
+            <li class="nav"><a href="home.html">Расчет МН</a></li>
+       </a>
+        </ul>
+        
+    </div>
+   
+ 
+        </header>
+ 
+    </header>
+   
+    <!-- ----------------- -->
+  
+  <body >
+      
+    <div class="back"></div> 
+   
+      
+    </div>
+      
+  
+    <form action="Result.html" method="post">
+      <!-- Инпут резисторов -->
+      <div class="input-container input-containerU">
+          <label for="input1">Перый резистор:
+              <input type="number" step="any" id="x" name="input1"value="2.45"> 
+          </label>
+  
+          <label for="input2">Второй резистор:
+              <input type="number" step="any" id="y" name="input2"value="5.12">
+          </label>
+  
+          <label for="input3">Третий резистор:
+              <input type="number" step="any" id="z" name="input3"value="3.23">
+          </label>
+      </div>
+  <!-- Инпут E источника -->
+      <div class="input-container input-containerE">
+          <label for="input4">E1:
+              <input type="number" step="any" id="E1" name="input4"value="220">
+          </label>
+  
+          <label for="input5">E2:
+              <input type="number" step="any" id="E2" name="input5"value="127">
+          </label>
+  
+          <label for="input6">E3:
+              <input type="number" step="any" id="E3" name="input6"value="27">
+          </label>
+      </div>
+  <!-- Инпут сопротивления источника -->
+      <div class="input-container input-containerR">
+          <label for="input7">R1 источника:
+              <input type="number" step="any" id="R1" name="input7" value="11">
+          </label>
+  
+          <label for="input8">R2 источника:
+              <input type="number" step="any" id="R2" name="input8"value="1">
+          </label>
+  
+          <label for="input9">R3 источника:
+              <input type="number" step="any" id="R3" name="input9"value="1">
+          </label>
+      </div>
+      <!-- Выбор направления источника-->
+  <div class="input-container input-containerO">
+      <label class="checkbox-green">Источник 1:
+          <input type="checkbox" value = '1' checked onchange="this.value = this.checked ? '1' : '-1';"  id="counter1"> <!-- Добавлен id "source1" -->
+          <span class="checkbox-green-switch" data-label-on="→" data-label-off="←"></span>
+      </label>
+  
+      <label class="checkbox-green">Источник 2:
+          <input type="checkbox" value = '1' checked onchange="this.value = this.checked ? '1' : '-1';", id="counter2" > <!-- Добавлен id "source2" -->
+          <span class="checkbox-green-switch" data-label-on="→" data-label-off="←"></span>
+      </label>
+  
+      <label class="checkbox-green">Источник 3:
+          <input type="checkbox" checked value = '1' onchange="this.value = this.checked ? '1' : '-1';", id="counter3"> <!-- Добавлен id "source3" -->
+          <span class="checkbox-green-switch" data-label-on="→" data-label-off="←"></span>
+      </label>
+  </div>
+     
+         
+      </div> 
+  <h3>
+  
+  
+      <button  type="submit"  class=" button">  
+      Расчет 
+  </button>
+  
+  </h3>
+      </form>
+  
+   
+  
+  
+  </body>
+  
+  </html>

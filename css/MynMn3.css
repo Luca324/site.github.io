@@ -1,0 +1,57 @@
+#shema-wrapper {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 300px;
+}
+#shema {
+    width: 290px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.arrow {
+    width: 46px;
+    position: absolute;
+	left: 155px;
+}
+#arrow1 {
+    top: 25px;
+}
+#arrow2 {
+    top: 100px;
+}
+#arrow3 {
+    top: 170px;
+}
+.R_shema {
+	position: absolute; 
+    left: 53px;
+}
+
+#R1_shema {
+	top: 27px;
+}
+#R2_shema {
+	top: 101px;
+}
+#R3_shema {
+	top: 170px;
+}
+
+.E_shema {
+	position: absolute; 
+    left: 214px;
+}
+#E1_shema {
+	top: 15px;
+}
+#E2_shema {
+	top: 89px;
+}
+#E3_shema {
+	top: 158px;
+}
+#work {
+	max-width: 495px;
+}

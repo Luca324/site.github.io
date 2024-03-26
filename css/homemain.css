@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,200;1,500&display=swap');
+
+body {
+  color: white;
+  text-align: center;
+  background: #2c3e50;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  font-family: 'Advent Pro', sans-serif;
+}
+
+.logo {
+  display: inline-block;
+  width: 115px;
+  height: 115px;
+}
+
+header {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  width: auto;
+  font-family: 'Advent Pro', sans-serif;
+  font-size: 19px;
+}
+
+a:hover {
+  color: #4fb743;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 0;
+}
+
+.logo:hover {
+  animation: spin 15s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 21px;
+}
+
+h1 {
+  margin: 0;
+  margin-top: 20px;
+  font-size: 30px;
+}
+
+.some {
+  /* border: grey 10px solid;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 280px; */
+
+}
+.some-inner {
+  display: inline-block;
+  border-radius: 20px;
+  background: #2c3e50;
+  width: 190px;
+  padding: 9px;
+  margin: calc((220px - 190px - 18px) / 2);
+}
+.some {
+  margin-left: auto;
+  border-radius: 20px;
+  margin-right: auto;
+  max-width: 220px;
+  margin-top: 18px;
+  background-image: linear-gradient(30deg, #838383, #49555C, #838383, #49555C, #838383, #49555C);
+  text-align: center;
+}
