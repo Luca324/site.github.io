@@ -1,26 +1,20 @@
+// при вводе R и E значение выводится на схему
+const inputListener = function(id) {
+  console.log('*in inputListener* id = ', id)
+  document.querySelector('#'+ id).addEventListener('input', () => {
+    console.log('input ' + id)
+    $('#' + id + '_shema_value').text($("#" + id).val())
+ 
+  })
+  console.log('#' + id + 'shema_value'+ ' inputListener added. to ' +"#" + id)
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  // при вводе R значение выводится на схему
-  document.querySelector("#R1").addEventListener('input', () => {
-    document.querySelector('#R1_shema_val()').innerHTML = document.querySelector("#R1").val();
-  })
-  document.querySelector("#R2").addEventListener('input', () => {
-    document.querySelector('#R2_shema_val()').innerHTML = document.querySelector("#R2").val();
-  })
-  document.querySelector("#R3").addEventListener('input', () => {
-    document.querySelector('#R3_shema_val()').innerHTML = document.querySelector("#R3").val();
-  })
-
-  // при вводе E значение выводится на схему
-  document.querySelector("#E1").addEventListener('input', () => {
-    document.querySelector('#E1_shema_val()').innerHTML = document.querySelector("#E1").val();
-  })
-  document.querySelector("#E2").addEventListener('input', () => {
-    document.querySelector('#E2_shema_val()').innerHTML = document.querySelector("#E2").val();
-  })
-  document.querySelector("#E3").addEventListener('input', () => {
-    document.querySelector('#E3_shema_val()').innerHTML = document.querySelector("#E3").val();
-  })
-
+  const inputIds = ['R1', 'R2', 'R3', 'E1', 'E2', 'E3']
+  for (id in inputIds) {
+    inputListener(inputIds[id])
+    console.log('id = ' + id, 'inputIds[id] = ' + inputIds[id])
+  }
 
   document.querySelector('form').addEventListener("submit", (event) => {
     event.preventDefault();
