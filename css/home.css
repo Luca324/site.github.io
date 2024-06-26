@@ -1,17 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@1,200;1,500&display=swap');
 
-/*------------------------------------ШАПКА-------------------------*/
-svg {
+.logo svg {
 	display: inline-block;
 	width: 25px;
 	height: 25px;
 }
 
-a {
+nav {
+	height: 150px;
+	transition: height 0.3s cubic-bezier(0.68, -0.5, 0.265, 1.15);
+}
+nav.collapsed {
+	height: 0; /* Collapsed height */
+  }
+
+nav a {
 	text-decoration: none;
+	transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 	color: white;
+	display: inline-block;
 	width: auto;
 	font-family: 'Advent Pro', sans-serif;
+	position: relative;
+}
+
+nav a:hover {
+	transform: translateX(15px);
 }
 
 .container2 {
@@ -22,9 +36,12 @@ a {
 
 .header {
 	text-align: justify;
-	padding: 1em 15px;
+	padding: 1em 15px 0 15px;
 	background: #2c3e50;
 	color: #fff;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden; /* когда меню nav схлопывается, содержимое плавно скрывается вместе со схлопыванием меню. */
 }
 
 header::after {
@@ -33,9 +50,24 @@ header::after {
 	width: 100%;
 	max-width: 10000px;
 }
+.menubutton {
+	border: none;
+	background: inherit;
+	color: inherit;
+	/* appearance: none; */
+	width:100%;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+}
 
-/*------------------------------------ФОН-------------------------*/
-
+.menubutton svg {
+	transform: scaleY(-1);
+	transition: transform 0.3s cubic-bezier(0.68, -0.15, 0.265, 1.15);
+}
+.menubutton.collapsed svg {
+	transform: scaleY(1);
+}
 .back {
 
 	width: auto;
@@ -147,6 +179,10 @@ body {
 	transform: translate3d(44px, 0, 0);
 }
 
+form {
+	margin-bottom: 18px;
+}
+
 /* Hover */
 .checkbox-green input[type="checkbox"]:not(:disabled)+.checkbox-green-switch:hover {
 	cursor: pointer;
@@ -177,16 +213,19 @@ label {
 	padding: 2px;
 }
 
-.button {
+.calculate {
 	appearance: none;
-	font-family: inherit;
-	border-radius: 100px;
-	background: #4676D7;
+	/* border-radius: 29px; */
+	background: #4fb743;
 	color: rgb(255, 255, 255);
-	padding: 15px 15px;
-	font-size: 16px;
-	width: 200px;
+	padding: 10px 20px;
+	width: 100px;
+	border: none;
+	border-radius: 29px;
+}
 
+.calculate:hover {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 h7 {
@@ -246,7 +285,6 @@ h1 {
 	min-height: 50px;
 	display: flex;
 	flex-wrap: wrap;
-
 }
 
 input {
@@ -274,7 +312,5 @@ input {
 }
 
 .paddingbottom {
-
 	padding-bottom: 10px;
-
 }
