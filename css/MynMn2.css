@@ -1,19 +1,20 @@
-#shema-wrapper {
+
+/* #shema-wrapper {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 300px;
+	max-width: 333px;
 }
 #shema {
-    width: 290px;
     margin-right: auto;
     margin-left: auto;
+    height: 144px;
 }
 
 .arrow {
     width: 46px;
     position: absolute;
-	left: 155px;
+    left: 174px;
 }
 #arrow1 {
     top: 25px;
@@ -23,8 +24,8 @@
 }
 
 .R_shema {
-	position: absolute; 
-    left: 53px;
+	position: absolute;
+	left: 75px;
 }
 
 #R1_shema {
@@ -34,10 +35,21 @@
 	top: 101px;
 }
 
+.r_shema {
+	position: absolute;
+	left: 232px;
+}
+
+#r1_shema {
+	top: 37px;
+}
+#r2_shema {
+	top: 111px;
+}
 
 .E_shema {
-	position: absolute; 
-    left: 214px;
+	position: absolute;
+	left: 236px;
 }
 #E1_shema {
 	top: 15px;
@@ -47,4 +59,4 @@
 }
 #work {
 	max-width: 385px;
-}
+} */

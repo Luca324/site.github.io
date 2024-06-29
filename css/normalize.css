@@ -1,7 +1,7 @@
 /*------------------NormalizeCSS--------------*/
 html {
 	line-height: 1.15;
-	-webkit-text-size-adjust: 100%
+	-webkit-text-size-adjust: 100%;
 }
 
 
@@ -68,7 +68,7 @@ sup {
 }
 
 img {
-	border-style: none
+	border-style: none;
 }
 
 button,
@@ -169,7 +169,7 @@ template {
 }
 
 p {
-	margin: 0;
+	/* margin: 0; */
 }
 
 /*------------------NormalizeCSS--------------*/

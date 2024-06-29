@@ -4,16 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Физика</title>
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/MynMn4.css">
-    <script src="js/MN4.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <!--------Формулы MathJAX------>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
-    <!--------Формулы MathJAX------>
+    <title>Расчет цепей методом наложения токов онлайн калькулятор</title>
+    <meta name="description"
+        content="Рассчитать токи в ветвях онлайн методом наложения. Токи в ветвях и промежуточные расчеты. Введите направления в ветвях, ЭДС и сопротивления">
 </head>
 
 <body>
@@ -30,212 +26,519 @@
             </div>
             <nav>
                 <ul>
-                    <li class="nav current">Расчет МУН
+                    <li>Расчет МУН
                         <ul>
                             <li><a href="MYN2.html">2 ветки</a></li>
                             <li><a href="MYN3.html">3 ветки</a></li>
-                            <li><a href="MYN4.html" class="current">4 ветки</a></li>
+                            <li><a href="MYN4.html">4 ветки</a></li>
                         </ul>
                     </li>
-                    <li>Расчет МН
+                    <li class="nav present">Расчет МН
                         <ul>
                             <li><a href="MN2.html">2 ветки</a></li>
                             <li><a href="MN3.html">3 ветки</a></li>
-                            <li><a href="MN4.html">4 ветки</a></li>
+                            <li><a href="MN4.html" class="present">4 ветки</a></li>
                         </ul>
                     </li>
             </nav>
             </ul>
         </div>
+        <button class="menubutton">
+            <svg fill="#ffffff" height="13px" width="20px" viewBox="0 0 330 330">
+                <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+                c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+                s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+            </svg>
+        </button>
     </header>
     <div id="work">
-        <form action="Result.html" method="post">
+        <form method="post">
 
+            <!-- Инпут резисторов -->
             <div class="input-container-wrapper">
-                <!-- Инпут резисторов -->
                 <div class="input-container input-containerU">
-                    <label for="input1">Первая ветка:
-                        <input type="number" step="any" id="x" name="input1" value="11.2">
-                        
+                    <label for="R1">R1:
+                        <input type="number" step="any" id="R1" value="4.7">
                     </label>
-
-                    <label for="input2">Вторая ветка:
-                        <input type="number" step="any" id="y" name="input2" value="30">
+                    <label for="R2">R2:
+                        <input type="number" step="any" id="R2" value="6.9">
                     </label>
-
-                    <label for="input3">Третья ветка:
-                        <input type="number" step="any" id="z" name="input3" value="22.8">
+                    <label for="R3">R3:
+                        <input type="number" step="any" id="R3" value="8.3">
                     </label>
-
-                    <label for="input40">Четвертая ветка:
-                        <input type="number" step="any" id="w" name="input40" value="22.8">
+                    <label for="R4">R4:
+                        <input type="number" step="any" id="R4" value="9.3">
                     </label>
                 </div>
 
                 <!-- Инпут E источника -->
                 <div class="input-container input-containerE">
-                    <label for="input4">E1:
-                        <input type="number" step="any" id="E1" name="input4" value="12">
+                    <label for="E1">E1:
+                        <input type="number" step="any" id="E1" value="26">
                     </label>
-
-                    <label for="input5">E2:
-                        <input type="number" step="any" id="E2" name="input5" value="127">
+                    <label for="E2">E2:
+                        <input type="number" step="any" id="E2" value="360">
                     </label>
-
-                    <label for="input6">E3:
-                        <input type="number" step="any" id="E3" name="input6" value="36">
+                    <label for="E3">E3:
+                        <input type="number" step="any" id="E3" value="127">
                     </label>
-
-                    <label for="input60">E4:
-                        <input type="number" step="any" id="E4" name="input60" value="36">
+                    <label for="E4">E4:
+                        <input type="number" step="any" id="E4" value="220">
                     </label>
                 </div>
 
                 <!-- Инпут сопротивления источника -->
                 <div class="input-container input-containerR">
-                    <label for="input7">R1 источника:
-                        <input type="number" step="any" id="R1" name="input7" value="1">
+                    <label for="r1">r01:
+                        <input type="number" step="any" id="r1" value="1">
                     </label>
-
-                    <label for="input8">R2 источника:
-                        <input type="number" step="any" id="R2" name="input8" value="1">
+                    <label for="r2">r02:
+                        <input type="number" step="any" id="r2" value="2">
                     </label>
-
-                    <label for="input9">R3 источника:
-                        <input type="number" step="any" id="R3" name="input9" value="1">
+                    <label for="r3">r03:
+                        <input type="number" step="any" id="r3" value="3">
                     </label>
-
-                    <label for="input90">R4 источника:
-                        <input type="number" step="any" id="R4" name="input90" value="1">
+                    <label for="r4">r04:
+                        <input type="number" step="any" id="r4" value="4">
                     </label>
                 </div>
             </div>
-            <!-- Выбор направления источника-->
-            <div class="input-container input-containerO">
-                <label class="checkbox-green"><span>Источник 1:</span>
-                    <input type="checkbox" value='1' checked onchange="this.value = this.checked ? '1' : '-1';
-                if (this.checked) {
-                    document.querySelector('#arrow1').style.transform = 'scale(1)'; 
-                    console.log('1 checked')
-                } else {
-                    document.querySelector('#arrow1').style.transform = 'scale(-1)'; 
-                    console.log('1 checked')
-                }
-            " id="counter1">
-                    <span class="checkbox-green-switch" data-label-on="→" data-label-off="←"></span>
-                </label>
 
-                <label class="checkbox-green"><span>Источник 2:</span>
-                    <input type="checkbox" value='1' checked onchange="this.value = this.checked ? '1' : '-1';
-                if (this.checked) {
-                    document.querySelector('#arrow2').style.transform = 'scale(1)'; 
-                    console.log('2 checked')
-                } else {
-                    document.querySelector('#arrow2').style.transform = 'scale(-1)'; 
-                    console.log('2 checked')
-                }
-                " , id="counter2">
-                    <span class="checkbox-green-switch" data-label-on="→" data-label-off="←"></span>
-                </label>
-
-                <label class="checkbox-green"><span>Источник 3:</span>
-                    <input type="checkbox" checked value='1' onchange="this.value = this.checked ? '1' : '-1';
-                    if (this.checked) {
-                    document.querySelector('#arrow3').style.transform = 'scale(1)'; 
-                } else {
-                    document.querySelector('#arrow3').style.transform = 'scale(-1)'; 
-                }
-                " , id="counter3">
-                    <span class="checkbox-green-switch" data-label-on="→" data-label-off="←"></span>
-                </label>
-
-                <label class="checkbox-green"><span>Источник 4:</span>
-                    <input type="checkbox" checked value='1' onchange="this.value = this.checked ? '1' : '-1';
-                    if (this.checked) {
-                    document.querySelector('#arrow4').style.transform = 'scale(1)'; 
-                } else {
-                    document.querySelector('#arrow4').style.transform = 'scale(-1)'; 
-                }
-                " , id="counter4">
-                    <span class="checkbox-green-switch" data-label-on="→" data-label-off="←"></span>
-                </label>
-            </div>
 
             <div class="buttondiv">
-                <button type="submit" class="button">Расчет</button>
+                <button type="submit" class="calculate">Расчет</button>
+                <button type="reset" class="clear">Очистить</button>
             </div>
         </form>
         <div id="shema-wrapper">
-            <img id="shema" src="img/Shema4.jpg">
+            <img id="shema" src="img/Shema4.png">
             <img class="arrow" id="arrow1" src="img/arrow.jpg">
             <img class="arrow" id="arrow2" src="img/arrow.jpg">
             <img class="arrow" id="arrow3" src="img/arrow.jpg">
             <img class="arrow" id="arrow4" src="img/arrow.jpg">
-            <span class="R_shema" id="R1_shema"><span id="R1_shema_value">1</span> Ом</span>
-            <span class="R_shema" id="R2_shema"><span id="R2_shema_value">1</span> Ом</span>
-            <span class="R_shema" id="R3_shema"><span id="R3_shema_value">1</span> Ом</span>
-            <span class="R_shema" id="R4_shema"><span id="R4_shema_value">1</span> Ом</span>
-            <span class="E_shema" id="E1_shema">E1 = <span id="E1_shema_value">12</span> В</span>
-            <span class="E_shema" id="E2_shema">E2 = <span id="E2_shema_value">127</span> В</span>
-            <span class="E_shema" id="E3_shema">E3 = <span id="E3_shema_value">36</span> В</span>
-            <span class="E_shema" id="E4_shema">E4 = <span id="E4_shema_value">36</span> В</span>
+            <span class="R_shema" id="R1_shema">R<sub>1</sub><span id="R1_shema_value"></span></span>
+            <span class="R_shema" id="R2_shema">R<sub>2</sub><span id="R2_shema_value"></span></span>
+            <span class="R_shema" id="R3_shema">R<sub>3</sub><span id="R3_shema_value"></span></span>
+            <span class="R_shema" id="R4_shema">R<sub>4</sub><span id="R4_shema_value"></span></span>
+            <span class="r_shema" id="r1_shema">r<sub>01</sub><span id="r1_shema_value"></span></span>
+            <span class="r_shema" id="r2_shema">r<sub>02</sub><span id="r2_shema_value"></span></span>
+            <span class="r_shema" id="r3_shema">r<sub>03</sub><span id="r3_shema_value"></span></span>
+            <span class="r_shema" id="r4_shema">r<sub>04</sub><span id="r4_shema_value"></span></span>
+            <span class="E_shema" id="E1_shema">E<sub>1</sub> <span id="E1_shema_value"></span></span>
+            <span class="E_shema" id="E2_shema">E<sub>2</sub><span id="E2_shema_value"></span></span>
+            <span class="E_shema" id="E3_shema">E<sub>3</sub><span id="E3_shema_value"></span></span>
+            <span class="E_shema" id="E4_shema">E<sub>4</sub><span id="E4_shema_value"></span></span>
+
         </div>
-        <h7>
-            <!--------Формулы MathJAX------>
+        <h2>Расчеты</h2>
+        <div class="section">
 
             <!--------Первый источник------>
-            <span class="formulas-h">1.</span>
-            <div class="formula">\(R_{||}= {R_2 * R_3 \over R_2 + R_3 }=\) <span class="out11"> </span></div>
-            <div class="formula">\(R_э = R_{||} + R_1=\) <span class="out21"> </span></div>
-            <!--------out1(1) - Первый источник------>
-            <div class="formula">\(I_1 = {E_1 \over R_э + r_{01}}=\) <span class="out31"> </span></div>
-            <!--------В js не дает скобки поставить------>
-            <div class="formula">\(U_{ab} = I_1 * R_{||}=\) <span class="out41"> </span></div>
-            <div class="formula">\(I_2 = {U_{ab} \over R_2}=\) <span class="out51"> </span></div>
-            <div class="formula">\(I_3 = {U_{ab} \over R_3}=\) <span class="out61"> </span></div>
+            <span class="formulas-h">1 источник ЭДС:</span>
+            <div class="formula">\(R_{пар}= {(R_2 + r_2) * (R_3 + r_3) * (R_4 + r_4) \over (R_2 + r_2)*(R_3 + r_3) +
+                (R_2 + r_2)*(R_4 + r_4) + (R_4 + r_4)*(R_3 + r_3)} =\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td>(<span class="R2_formula"></span> + <span class="r2_formula"></span>) * (<span
+                                    class="R3_formula"></span> + <span class="r3_formula"></span>) * (<span
+                                    class="R4_formula"></span> + <span class="r4_formula"></span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="denominator">(<span class="R2_formula"></span> + <span
+                                    class="r2_formula"></span>) * (<span class="R3_formula"></span> + <span
+                                    class="r3_formula"></span>) + (<span class="R2_formula"></span> + <span
+                                    class="r2_formula"></span>) * (<span class="R4_formula"></span> + <span
+                                    class="r4_formula"></span>) + (<span class="R4_formula"></span> + <span
+                                    class="r4_formula"></span>) * (<span class="R3_formula"></span> + <span
+                                    class="r3_formula"></span>)
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="Rpar1"> </span>
+                </span>
+            </div>
+
+
+
+
+            <div class="formula ek">\(R_э = R_{пар} + R_1=\)
+                <span class="calculation hidden"><span class="Rpar1"></span> + <span class="R1_formula"></span>
+                    \( = \) <span class="Rek1"></span> </span>
+            </div>
+
+            <div class="formula">\(I_1 = {E_1 \over R_э + r_{01}}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="E1_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="Rek1_formula"></span> + <span
+                                    class="r1_formula"></span></td>
+                        </tr>
+                    </table> \( = \) <span class="I1_l_formula"> </span>
+                </span>
+            </div>
+
+            <div class="formula">\(U_{ab} = I_1 * R_{пар}=\)
+                <span class="calculation hidden"><span class="I1_l_formula"></span> * <span
+                        class="Rpar1_formula"></span>
+                    \( = \) <span class="U_l_formula"></span></span>
+            </div>
+            <div class="formula">\(I_2 = {U_{ab} \over R_2 + r_2}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_l_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R2_formula"></span> + <span class="r2_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I2_l_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_3 = {U_{ab} \over R_3 + r_3}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_l_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R3_formula"></span> + <span class="r3_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I3_l_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_4 = {U_{ab} \over R_4 + r_4}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_l_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R4_formula"></span> + <span class="r4_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I4_l_formula"> </span>
+                </span>
+            </div>
 
             <!--------Второй источник------>
-            <span class="formulas-h">2.</span>
-            <div class="formula">\(R_{||}= {R_1 * R_3 \over R_1 + R_3 }=\) <span class="out12"> </span></div>
-            <div class="formula">\(R_э = R_{||} + R_3=\) <span class="out22"> </span></div>
-            <div class="formula">\(I_2 = {E_1 \over R_э + r_{02}}=\) <span class="out32"> </span></div>
-            <!--------out1 (2) - Второй источник------>
-            <div class="formula">\(U_{ab} = I_2 * R_{||}=\) <span class="out42"> </span></div>
-            <div class="formula">\(I_1 = {U_{ab} \over R_1}=\) <span class="out52"> </span></div>
-            <div class="formula">\(I_3 = {U_{ab} \over R_3}=\) <span class="out62"> </span></div>
+            <span class="formulas-h">2 источник ЭДС:</span>
+            <div class="formula">\(R_{пар}= {(R_1 + r_1) * (R_3 + r_3) * (R_4 + r_4) \over (R_1 + r_1)*(R_3 + r_3) +
+                (R_1 + r_1)*(R_4 + r_4) + (R_4 + r_4)*(R_3 + r_3)} =\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td>(<span class="R1_formula"></span> + <span class="r1_formula"></span>) * (<span
+                                    class="R3_formula"></span> + <span class="r3_formula"></span>) * (<span
+                                    class="R4_formula"></span> + <span class="r4_formula"></span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="denominator">(<span class="R1_formula"></span> + <span
+                                    class="r1_formula"></span>) * (<span class="R3_formula"></span> + <span
+                                    class="r3_formula"></span>) + (<span class="R1_formula"></span> + <span
+                                    class="r1_formula"></span>) * (<span class="R4_formula"></span> + <span
+                                    class="r4_formula"></span>) + (<span class="R4_formula"></span> + <span
+                                    class="r4_formula"></span>) * (<span class="R3_formula"></span> + <span
+                                    class="r3_formula"></span>)
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="Rpar2"> </span>
+                </span>
+            </div>
+
+
+            <div class="formula ek">\(R_э = R_{пар} + R_2=\)
+                <span class="calculation hidden"><span class="Rpar2"></span> + <span class="R2_formula"></span>
+                    \( = \) <span class="Rek2"></span> </span>
+            </div>
+
+            <div class="formula">\(I_2 = {E_2 \over R_э + r_{02}}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="E2_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="Rek2_formula"></span> + <span
+                                    class="r2_formula"></span></td>
+                        </tr>
+                    </table> \( = \) <span class="I2_ll_formula"> </span>
+                </span>
+            </div>
+
+            <div class="formula">\(U_{ab} = I_2 * R_{пар}=\)
+                <span class="calculation hidden"><span class="I2_ll_formula"></span> * <span
+                        class="Rpar2_formula"></span>
+                    \( = \) <span class="U_ll_formula"></span></span>
+            </div>
+            <div class="formula">\(I_1 = {U_{ab} \over R_1 + r_1}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_ll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R1_formula"></span> + <span class="r1_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I1_ll_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_3 = {U_{ab} \over R_3 + r_3}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_ll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R3_formula"></span> + <span class="r3_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I3_ll_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_4 = {U_{ab} \over R_4 + r_4}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_ll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R4_formula"></span> + <span class="r4_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I4_ll_formula"> </span>
+                </span>
+            </div>
 
             <!--------Третий источник------>
-            <span class="formulas-h">3.</span>
-            <div class="formula">\(R_{||}= {R_1 * R_2 \over R_1 + R_2 }=\) <span class="out13"> </span></div>
-            <div class="formula">\(R_э = R_{||} + R_3=\) <span class="out23"> </span></div>
-            <div class="formula">\(I_1 = {E_1 \over R_э + r_{01}}=\) <span class="out33"> </span></div>
-            <!--------out1 (3) - Третий источник------>
-            <div class="formula">\(U_{ab} = I_3 * R_{||}=\) <span class="out43"> </span></div>
-            <div class="formula">\(I_1 = {U_{ab} \over R_1}=\) <span class="out53"> </span></div>
-            <div class="formula">\(I_2 = {U_{ab} \over R_2}=\) <span class="out63"> </span></div>
-            <div class="formula">\(I_4 = {U_{ab} \over R_4}=\) <span class="out73"> </span></div>
-            <!---В работе-->
-            <!--------Четвертый источник------>
-            <span class="formulas-h">4.</span>
-            <div class="formula">\(R_{||}= {R_1 * R_2 \over R_1 + R_2 }=\) <span class="out14"> </span></div>
-            <!--------out1 (4) - Четвертый источник------>
-            <div class="formula">\(R_э = R_{||} + R_3=\) <span class="out24"> </span></div>
-            <div class="formula">\(I_1 = {E_1 \over R_э + r_{01}}=\) <span class="out34"> </span></div>
-            <div class="formula">\(U_{ab} = I_3 * R_{||}=\) <span class="out44"> </span></div>
-            <div class="formula">\(I_1 = {U_{ab} \over R_1}=\) <span class="out54"> </span></div>
-            <div class="formula">\(I_2 = {U_{ab} \over R_2}=\) <span class="out64"> </span></div>
-            <div class="formula">\(I_2 = {U_{ab} \over R_2}=\) <span class="out74"> </span></div>
+            <span class="formulas-h">3 источник ЭДС:</span>
 
+
+            <div class="formula">\(R_{пар}= {(R_1 + r_1) * (R_2 + r_2) * (R_4 + r_4) \over (R_1 + r_1)*(R_2 + r_2) +
+                (R_1 + r_1)*(R_4 + r_4) + (R_4 + r_4)*(R_2 + r_2)} =\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td>(<span class="R1_formula"></span> + <span class="r1_formula"></span>) * (<span
+                                    class="R2_formula"></span> + <span class="r2_formula"></span>) * (<span
+                                    class="R4_formula"></span> + <span class="r4_formula"></span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="denominator">(<span class="R1_formula"></span> + <span
+                                    class="r1_formula"></span>) * (<span class="R2_formula"></span> + <span
+                                    class="r2_formula"></span>) + (<span class="R1_formula"></span> + <span
+                                    class="r1_formula"></span>) * (<span class="R4_formula"></span> + <span
+                                    class="r4_formula"></span>) + (<span class="R4_formula"></span> + <span
+                                    class="r4_formula"></span>) * (<span class="R2_formula"></span> + <span
+                                    class="r2_formula"></span>)
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="Rpar3"> </span>
+                </span>
+            </div>
+
+            <div class="formula ek">\(R_э = R_{пар} + R_3=\)
+                <span class="calculation hidden"><span class="Rpar3"></span> + <span class="R3_formula"></span>
+                    \( = \) <span class="Rek3"></span> </span>
+            </div>
+
+            <div class="formula">\(I_3 = {E_3 \over R_э + r_{03}}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="E3_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="Rek3_formula"></span> + <span
+                                    class="r3_formula"></span></td>
+                        </tr>
+                    </table> \( = \) <span class="I3_lll_formula"> </span>
+                </span>
+            </div>
+
+            <div class="formula">\(U_{ab} = I_3 * R_{пар}=\)
+                <span class="calculation hidden"><span class="I3_lll_formula"></span> * <span
+                        class="Rpar3_formula"></span>
+                    \( = \) <span class="U_lll_formula"></span></span>
+            </div>
+            <div class="formula">\(I_1 = {U_{ab} \over R_1 + r_1}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_lll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R1_formula"></span> + <span class="r1_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I1_lll_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_2 = {U_{ab} \over R_2 + r_2}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_lll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R2_formula"></span> + <span class="r2_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I2_lll_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_4 = {U_{ab} \over R_4 + r_4}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_lll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R4_formula"></span> + <span class="r4_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I4_lll_formula"> </span>
+                </span>
+            </div>
+            <!--------Четвертый источник------>
+            <span class="formulas-h">4 источник ЭДС:</span>
+
+
+            <div class="formula">\(R_{пар}= {(R_1 + r_1) * (R_2 + r_2) * (R_3 + r_3) \over (R_1 + r_1)*(R_2 + r_2) +
+                (R_1 + r_1)*(R_3 + r_3) + (R_3 + r_3)*(R_2 + r_2)} =\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td>(<span class="R1_formula"></span> + <span class="r1_formula"></span>) * (<span
+                                    class="R2_formula"></span> + <span class="r2_formula"></span>) * (<span
+                                    class="R3_formula"></span> + <span class="r3_formula"></span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="denominator">(<span class="R1_formula"></span> + <span
+                                    class="r1_formula"></span>) * (<span class="R2_formula"></span> + <span
+                                    class="r2_formula"></span>) + (<span class="R1_formula"></span> + <span
+                                    class="r1_formula"></span>) * (<span class="R3_formula"></span> + <span
+                                    class="r3_formula"></span>) + (<span class="R3_formula"></span> + <span
+                                    class="r3_formula"></span>) * (<span class="R2_formula"></span> + <span
+                                    class="r2_formula"></span>)
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="Rpar4"> </span>
+                </span>
+            </div>
+
+
+            <div class="formula ek">\(R_э = R_{пар} + R_4=\)
+                <span class="calculation hidden"><span class="Rpar4"></span> + <span class="R4_formula"></span>
+                    \( = \) <span class="Rek4"></span> </span>
+            </div>
+
+            <div class="formula">\(I_4 = {E_4 \over R_э + r_{04}}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="E4_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="Rek4_formula"></span> + <span
+                                    class="r4_formula"></span></td>
+                        </tr>
+                    </table> \( = \) <span class="I4_llll_formula"> </span>
+                </span>
+            </div>
+
+            <div class="formula">\(U_{ab} = I_4 * R_{пар}=\)
+                <span class="calculation hidden"><span class="I4_llll_formula"></span> * <span
+                        class="Rpar4_formula"></span>
+                    \( = \) <span class="U_llll_formula"></span></span>
+            </div>
+            <div class="formula">\(I_1 = {U_{ab} \over R_1 + r_1}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_llll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R1_formula"></span> + <span class="r1_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I1_llll_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_2 = {U_{ab} \over R_2 + r_2}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_llll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R2_formula"></span> + <span class="r2_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I2_llll_formula"> </span>
+                </span>
+            </div>
+            <div class="formula">\(I_3 = {U_{ab} \over R_3 + r_3}=\)
+                <span class="calculation hidden">
+                    <table class="formulas_table">
+                        <tr>
+                            <td><span class="U_llll_formula"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="denominator"><span class="R3_formula"></span> + <span class="r3_formula"></span>
+                            </td>
+                        </tr>
+                    </table> \( = \) <span class="I3_llll_formula"> </span>
+                </span>
+            </div>
             <!--------Результат------>
             <span class="formulas-h">РЕЗУЛЬТАТ</span>
-            <div class="formula">\(I_1 = \) <span class="out1"> </span></div>
-            <div class="formula">\(I_2 = \) <span class="out2"> </span></div>
-            <div class="formula">\(I_3 = \) <span class="out3"> </span></div>
-            <div class="formula">\(I_4 = \) <span class="out4"> </span></div>
+            <div class="formula">\(I_1 = I_1^| \pm I_1^{||} \pm I_1^{|||} \pm I_1^{||||}=\) <span class="current1">
+                </span></div>
+            <div class="formula">\(I_2 = I_2^| \pm I_2^{||} \pm I_2^{|||} \pm I_2^{||||}=\) <span class="current2">
+                </span></div>
+            <div class="formula">\(I_3 = I_3^| \pm I_3^{||} \pm I_3^{|||} \pm I_3^{||||}=\) <span class="current3">
+                </span></div>
+            <div class="formula">\(I_4 = I_4^| \pm I_4^{||} \pm I_4^{|||} \pm I_4^{||||}=\) <span class="current4">
+                </span></div>
 
-        </h7>
+            <h2>Порядок действий метода наложения (МН):</h2>
+            <ol start="0">
+                <li>Сворачиваем схему так, чтобы каждая ветвь содержала один резистор сопротивлением R1, R2 и тд и один
+                    источник ЭДС с собственным сопротивлением r01, r02 и тд. Если в ветке несколько источников ЭДС, то
+                    их внутренние сопротивления складываются, при этом если они сонаправлены, то ЭДС складываются, а
+                    если разнонаправлены, то ЭДС вычитаются.</li>
+                <li>Сначала мысленно убираем из схемы все источники ЭДС, кроме первого.</li>
+                <li>Ветви (если их больше одной), кроме той, в которой мы оставили источник ЭДС, параллелим 1/Rпар =
+                    1/(R1+r01)+1/(R2+r02) …</li>
+                <li>Находим эквивалентное сопротивление Rэкв = Rпар +R1.</li>
+                <li>Находим ток в ветви с ЭДС: I1 = E1/(Rэкв + r01).</li>
+                <li>Напряжение U = I1 * Rпар.</li>
+                <li>Токи в ветвях без ЭДС:
+                    I2 = U/R2
+                    I3 = U/R3.</li>
+                <li>Повторяем шаги 1-6 для каждой ветви с источником ЭДС.</li>
+                <li>Находим реальные токи в каждой ветви: складываем все токи, найденные для каждой конкретной ветви.
+                    Причем для каждого слагаемого ставим знак + или – в зависимости от того, был ли он (при его
+                    вычислении, когда оставили один источник ЭДС) направлен также, как в исходной схеме (+) или
+                    противоположно (-).</li>
+                <li>Проверяем: наибольший ток должен быть равен по модулю сумме наименьших.</li>
+            </ol>
+        </div>
 
-        </form>
-</body>
+
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+            integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+        <script src="js/MN4.js"></script>
+</div></body>
+<footer></footer>
 
 </html>
